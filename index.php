@@ -41,17 +41,14 @@ if ($show == "$") {
         $province = $arrbn_id[3];
         $contact_tel = $arrbn_id[4];
 
-        $urlWithoutProtocol = "http://vpn.idms.pw/auth/auth.php?pid=" . $arrbn_id[0] . "&cid=" . $arrbn_id[1];
-        $isRequestHeader = FALSE;
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $productivity = curl_exec($ch);
-        curl_close($ch);
+       
         $arrPostData = array();
-        $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+                $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
-        $arrPostData['messages'][0]['text'] = $customer_name.":".$contact_tel.":".$Latitude.",".$Longitude;
+        $arrPostData['messages'][0]['text'] = "ชื่อ : ". $customer_name . "\r\n"
+                . "โทรศํพท์ : " . $contact_tel . "\r\n"
+                . "สถานที่ : " . $address." ".$street." ".$district." ".$city." ".$province . "\r\n"
+                . "พิกัด : https://www.google.co.th/maps/place/" . $Latitude . "," . $Longitude;
         //print_r($productivity);
 //        }
         //$json_a = json_decode($productivity, true);
