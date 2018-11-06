@@ -34,7 +34,7 @@ if ($show == "#") {
 //        echo "#" . $objResult["contact_tel"];
 
 
-if ($arrbn_id != ""){
+
 	 $Real_Service_Amount = $arrbn_id[0];  //จำนวนเงิน
         $Service_Type = $arrbn_id[1]; //เครือข่าย
         $Start_date = $arrbn_id[2]; // วันที่
@@ -43,7 +43,7 @@ if ($arrbn_id != ""){
         $Latitude = $arrbn_id[5]; // Latitude
         $Longitude = $arrbn_id[6]; // Longitude
         $addresscustomer = $arrbn_id[7]; // address
-       
+ if ($Topup_Name != ""){      
         $arrPostData = array();
                 $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
