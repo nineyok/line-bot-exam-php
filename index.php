@@ -35,23 +35,25 @@ if ($show == "#") {
 
 
 
-        $customer_name = $arrbn_id[0];  //ชื่อ
-        $contact_tel = $arrbn_id[1]; //เบอร์โทรศัพท์
-        $Latitude = $arrbn_id[2]; // ละติดจูด
-        $Longitude = $arrbn_id[3]; // ลองติจูด
-        $address = $arrbn_id[4]; // address
-        $street = $arrbn_id[5]; // street
-        $district = $arrbn_id[6]; // district
-        $city = $arrbn_id[7]; // city
-        $province= $arrbn_id[8]; // province
-
+        $Real_Service_Amount = $arrbn_id[0];  //จำนวนเงิน
+        $Service_Type = $arrbn_id[1]; //เครือข่าย
+        $Start_date = $arrbn_id[2]; // วันที่
+        $Topup_Name = $arrbn_id[3]; // ชื่อตู้
+        $customer_name = $arrbn_id[4]; // ชื่อ
+        $Latitude = $arrbn_id[5]; // Latitude
+        $Longitude = $arrbn_id[6]; // Longitude
+        $addresscustomer = $arrbn_id[7]; // address
        
         $arrPostData = array();
                 $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
-        $arrPostData['messages'][0]['text'] = "ชื่อ : ". $customer_name . "\r\n"
-                . "โทรศัพท์ : " . $contact_tel . "\r\n"
-                . "สถานที่ : " . $address." ".$street." ".$district." ".$city." ".$province . "\r\n"
+        $arrPostData['messages'][0]['text'] = "เบอร์โทร : ". $idcard . "\r\n"
+		        . "จำนวน : " . $Real_Service_Amount . "  บาท" ."\r\n"
+                . "เครือข่าย : " . $Service_Type . "\r\n"
+				. "วันที่เติม : " . $Start_date . "\r\n"
+                . "รหัสตู้ : " . $Topup_Name . "\r\n"
+				. "ชื่อ : " . $customer_name . "\r\n"
+                . "สถานที่ : " . $addresscustomer . "\r\n"
                 . "พิกัด : https://www.google.co.th/maps/place/" . $Latitude . "," . $Longitude;
         //print_r($productivity);
 //        }
