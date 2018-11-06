@@ -70,10 +70,10 @@ if ($show == "#") {
         //echo $productivity ;
     }
 } else {
-     $arrPostData = array();
-      $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-      $arrPostData['messages'][0]['type'] = "text";
-      $arrPostData['messages'][0]['text'] = "ข้อความไม่ถูกต้อง กรุณากรอกเป็นแบบนี้ (ตัวอย่าง เบอร์โทร #0123456789)"; 
+     //$arrPostData = array();
+      //$arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+      //$arrPostData['messages'][0]['type'] = "text";
+      //$arrPostData['messages'][0]['text'] = "ข้อความไม่ถูกต้อง กรุณากรอกเป็นแบบนี้ (ตัวอย่าง เบอร์โทร #0123456789)"; 
 }
 
 
