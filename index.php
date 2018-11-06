@@ -50,7 +50,7 @@ if ($show == "#") {
                 $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
         $arrPostData['messages'][0]['text'] = "ชื่อ : ". $customer_name . "\r\n"
-                . "โทรศํพท์ : " . $contact_tel . "\r\n"
+                . "โทรศัพท์ : " . $contact_tel . "\r\n"
                 . "สถานที่ : " . $address." ".$street." ".$district." ".$city." ".$province . "\r\n"
                 . "พิกัด : https://www.google.co.th/maps/place/" . $Latitude . "," . $Longitude;
         //print_r($productivity);
