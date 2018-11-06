@@ -34,8 +34,8 @@ if ($show == "#") {
 //        echo "#" . $objResult["contact_tel"];
 
 
-
-        $Real_Service_Amount = $arrbn_id[0];  //จำนวนเงิน
+if ($arrbn_id != ""){
+	 $Real_Service_Amount = $arrbn_id[0];  //จำนวนเงิน
         $Service_Type = $arrbn_id[1]; //เครือข่าย
         $Start_date = $arrbn_id[2]; // วันที่
         $Topup_Name = $arrbn_id[3]; // ชื่อตู้
@@ -55,16 +55,25 @@ if ($show == "#") {
 				. "ชื่อ : " . $customer_name . "\r\n"
                 . "สถานที่ : " . $addresscustomer . "\r\n"
                 . "พิกัด : https://www.google.co.th/maps/place/" . $Latitude . "," . $Longitude;
+	
+}else{
+     $arrPostData = array();
+      $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+      $arrPostData['messages'][0]['type'] = "text";
+      $arrPostData['messages'][0]['text'] = "ไม่พบข้อมูล : ". $idcard ; 	
+	
+}
+       
         //print_r($productivity);
 //        }
         //$json_a = json_decode($productivity, true);
         //echo $productivity ;
     }
 } else {
-    /* $arrPostData = array();
+     $arrPostData = array();
       $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
       $arrPostData['messages'][0]['type'] = "text";
-      $arrPostData['messages'][0]['text'] = "ข้อความไม่ถูกต้อง กรุณากรอกเป็นแบบนี้ (ตัวอย่าง เลขบัตรประชาชน #3100700678011 หรือ ชื่อบุคคล #ชนะสงคราม แก้วเงิน)"; */
+      $arrPostData['messages'][0]['text'] = "ข้อความไม่ถูกต้อง กรุณากรอกเป็นแบบนี้ (ตัวอย่าง เบอร์โทร #0123456789)"; 
 }
 
 
