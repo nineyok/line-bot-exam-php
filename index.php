@@ -50,7 +50,7 @@ if ($show == "#") {
         $arrPostData['messages'][0]['text'] = "เบอร์โทร : ". $idcard . "\r\n"
 		        . "จำนวน : " . $Real_Service_Amount . "  บาท" ."\r\n"
                 . "เครือข่าย : " . $Service_Type . "\r\n"
-				. "วันที่เติม : " . $Start_date . "\r\n"
+				. "เติมล่าสุด : " . $Start_date . "\r\n"
                 . "รหัสตู้ : " . $Topup_Name . "\r\n"
 				. "ชื่อ : " . $customer_name . "\r\n"
                 . "สถานที่ : " . $addresscustomer . "\r\n"
