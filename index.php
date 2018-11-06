@@ -35,11 +35,15 @@ if ($show == "#") {
 
 
 
-        $customer_name = $arrbn_id[0];
-        $Latitude = $arrbn_id[1];
-        $Longitude = $arrbn_id[2];
-        $province = $arrbn_id[3];
-        $contact_tel = $arrbn_id[4];
+        $customer_name = $arrbn_id[0];  //ชื่อ
+        $contact_tel = $arrbn_id[1]; //เบอร์โทรศัพท์
+        $Latitude = $arrbn_id[2]; // ละติดจูด
+        $Longitude = $arrbn_id[3]; // ลองติจูด
+        $address = $arrbn_id[4]; // address
+        $street = $arrbn_id[5]; // street
+        $district = $arrbn_id[6]; // district
+        $city = $arrbn_id[7]; // city
+        $province= $arrbn_id[8]; // province
 
        
         $arrPostData = array();
