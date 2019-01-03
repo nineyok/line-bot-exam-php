@@ -13,7 +13,7 @@ $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 
 $show = substr($arrJson['events'][0]['message']['text'], 0, 1);
 $idcard = substr($arrJson['events'][0]['message']['text'], 1);
-if ($show == "#") {
+if ($show == "$") {
     if ($idcard != "") {
         $urlWithoutProtocol = "http://vpn.idms.pw/auth/selecttel.php?uid=" . $idcard;
         $isRequestHeader = FALSE;
