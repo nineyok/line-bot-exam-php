@@ -417,14 +417,14 @@ $num=0;
       }
       if($status=="1"){
                        $arrPostData['messages'][$num]['type'] = "image";
-                       $arrPostData['messages'][$num]['originalContentUrl'] = "http://vpn.idms.pw/id_pdc/pic/".$idcard.".jpg";
-                       $arrPostData['messages'][$num]['previewImageUrl'] = "http://vpn.idms.pw/id_pdc/pic/".$idcard.".jpg";
+                       $arrPostData['messages'][$num]['originalContentUrl'] = "https://vpn.idms.pw/id_pdc/pic/".$idcard.".jpg";
+                       $arrPostData['messages'][$num]['previewImageUrl'] = "https://vpn.idms.pw/id_pdc/pic/".$idcard.".jpg";
                        $num++;
       }
       if($status=="3"){
                        $arrPostData['messages'][$num]['type'] = "image";
-                       $arrPostData['messages'][$num]['originalContentUrl'] = "http://vpn.idms.pw/id_pdc/pic/".$idcard.".jpg";
-                       $arrPostData['messages'][$num]['previewImageUrl'] = "http://vpn.idms.pw/id_pdc/pic/".$idcard.".jpg";
+                       $arrPostData['messages'][$num]['originalContentUrl'] = "https://vpn.idms.pw/id_pdc/pic/".$idcard.".jpg";
+                       $arrPostData['messages'][$num]['previewImageUrl'] = "https://vpn.idms.pw/id_pdc/pic/".$idcard.".jpg";
                        $num++;
       }
       if($detail != ""){
