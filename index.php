@@ -335,9 +335,12 @@ if($strchk[0]=="!"){
                       //$r = file_put_contents($localfile, getContentUrl($input));
                        $r = file_get_contents('http://vpn.idms.pw/id_pdc/index_image.php?uid='.$idcard);
                         //echo $content;
+						
+						
                         $status = "1";
                         $txt = "";
                       if($r == '1'){
+					   $rr = file_get_contents('https://www.kitsada.com/index_image.php?uid='.$idcard);
                         $status = "1";
                       }else{
                         $status = "2";
@@ -417,14 +420,14 @@ $num=0;
       }
       if($status=="1"){
                        $arrPostData['messages'][$num]['type'] = "image";
-                       $arrPostData['messages'][$num]['originalContentUrl'] = "https://vpn.idms.pw/id_pdc/pic/".$idcard.".jpg";
-                       $arrPostData['messages'][$num]['previewImageUrl'] = "https://vpn.idms.pw/id_pdc/pic/".$idcard.".jpg";
+                       $arrPostData['messages'][$num]['originalContentUrl'] = "https://www.kitsada.com/pic/".$idcard.".jpg";
+                       $arrPostData['messages'][$num]['previewImageUrl'] = "https://www.kitsada.com/pic/".$idcard.".jpg";
                        $num++;
       }
       if($status=="3"){
                        $arrPostData['messages'][$num]['type'] = "image";
-                       $arrPostData['messages'][$num]['originalContentUrl'] = "https://vpn.idms.pw/id_pdc/pic/".$idcard.".jpg";
-                       $arrPostData['messages'][$num]['previewImageUrl'] = "https://vpn.idms.pw/id_pdc/pic/".$idcard.".jpg";
+                       $arrPostData['messages'][$num]['originalContentUrl'] = "https://www.kitsada.com/pic/".$idcard.".jpg";
+                       $arrPostData['messages'][$num]['previewImageUrl'] = "https://www.kitsada.com/pic/".$idcard.".jpg";
                        $num++;
       }
       if($detail != ""){
