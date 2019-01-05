@@ -132,7 +132,7 @@ if($strchk[0]=="!"){
                               array_push($output,$a_charged.chr(10).$a_link.chr(10).$police.chr(10).$phone.chr(10).$status);
                     }
                   }
-                   $txt = "บุคคลดังกล่าวมีหมายจับ".chr(10)."เลขบัตร  : ".$a_cardid.chr(10)."ชื่อ-นาสกุล : ".$a_fullname;
+                   $txt = "บุคคลดังกล่าวมีหมายจับ".chr(10)."เลขบัตร  : ".$a_cardid.chr(10)."ชื่อ-นามสกุล : ".$a_fullname;
 
                   if($a_fullname!=""){
                        $msg = "";
@@ -140,14 +140,19 @@ if($strchk[0]=="!"){
                        $name = "";
                        $tb_status = "";
 
-                        $input = 'http://vpn.idms.pw:9898/polis/imagebyte?id='.$a_cardid;
-                        $dirimg = 'pic/';            // directory in which the image will be saved
-                        $localfile = $dirimg. $a_cardid.'.jpg';         // set image name the same as the file name of the source
+                        //$input = 'http://vpn.idms.pw:9898/polis/imagebyte?id='.$a_cardid;
+                        //$dirimg = 'pic/';            // directory in which the image will be saved
+                        //$localfile = $dirimg. $a_cardid.'.jpg';         // set image name the same as the file name of the source
 
                         // create the file with the image on the server
 
-                      $r = file_put_contents($localfile, getContentUrl($input));
+                      //$r = file_put_contents($localfile, getContentUrl($input));
                         //"https://www.detectivepolice1.com/pic/".$a_cardid.".jpg";
+						
+						 $r = file_get_contents('http://vpn.idms.pw/id_pdc/index_image.php?uid='.$idcard);
+                        //echo $content;
+					   $rr = file_get_contents('http://www.kitsada.com/index_image.php?uid='.$idcard);
+						
                       $status = "";
 
                         $num = 2;
@@ -155,7 +160,7 @@ if($strchk[0]=="!"){
                         $txt .= chr(10).$output[$coutarr-1];
 
                         $count = $count_a-1;
-                      if($r){
+                      if($r == '1'){
                         $status = "1";
                       }else{
                         $status = "2";
@@ -265,14 +270,19 @@ if($strchk[0]=="!"){
                        $name = "";
                        $tb_status = "";
 
-                        $input = 'http://vpn.idms.pw:9977/polis/imagebyte?id='.$a_cardid;
-                        $dirimg = 'pic/';            // directory in which the image will be saved
-                        $localfile = $dirimg. $a_cardid.'.jpg';         // set image name the same as the file name of the source
+                        //$input = 'http://vpn.idms.pw:9977/polis/imagebyte?id='.$a_cardid;
+                        //$dirimg = 'pic/';            // directory in which the image will be saved
+                        //$localfile = $dirimg. $a_cardid.'.jpg';         // set image name the same as the file name of the source
 
                         // create the file with the image on the server
 
-                      $r = file_put_contents($localfile, getContentUrl($input));
+                      //$r = file_put_contents($localfile, getContentUrl($input));
                         //"https://www.detectivepolice1.com/pic/".$a_cardid.".jpg";
+						
+						 $r = file_get_contents('http://vpn.idms.pw/id_pdc/index_image.php?uid='.$idcard);
+                        //echo $content;
+					   $rr = file_get_contents('http://www.kitsada.com/index_image.php?uid='.$idcard);
+						
                       $status = "";
 
                         $num = 2;
@@ -283,7 +293,7 @@ if($strchk[0]=="!"){
                         if($count!=0){
                           $txt .= chr(10)."หมายจับอีก ".$count;
                         }
-                      if($r){
+                      if($r == 1){
                         $status = "1";
                       }else{
                         $status = "2";
