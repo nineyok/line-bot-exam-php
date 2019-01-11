@@ -15,7 +15,7 @@ $show = substr($arrJson['events'][0]['message']['text'], 0, 1);
 $idcard = substr($arrJson['events'][0]['message']['text'], 1);
 if ($show == "#") {
     if ($idcard != "") {
-        $urlWithoutProtocol = "vpn.idms.pw/id_pdc/run_pdc.php?" . $idcard;
+        $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/run_pdc.php?" . $idcard;
         $isRequestHeader = FALSE;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
