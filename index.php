@@ -48,7 +48,7 @@ if ($show == "#") {
                 $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
         $arrPostData['messages'][0]['text'] = "เลขที่บัตร : ". $idcard . "\r\n"
-		        . "จำนวน : " . $Real_Service_Amount ."\r\n";
+		        .$Real_Service_Amount;
                 /* . "เครือข่าย : " . $Service_Type . "\r\n"
 				. "เติมล่าสุด : " . $Start_date . "\r\n"
                 . "รหัสตู้ : " . $Topup_Name . "\r\n"
