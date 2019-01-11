@@ -55,14 +55,24 @@ if($strchk[0]=="#"){
               if($countid == "13"){
                 $request = "operation=Add&a_cardid=".$idcard;
                   $urlWithoutProtocol = "vpn.idms.pw/id_pdc/run_pdc.php?".$request ;
-                 /*  $isRequestHeader = FALSE;
+        /*           $isRequestHeader = FALSE;
                   $ch = curl_init();
                   curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
                   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
                   $productivity = curl_exec($ch);
                   curl_close($ch);
-                  $json_a = json_decode($productivity, true);
-                  $a_cardid = "";
+                  $json_a = json_decode($productivity, true); */
+				  
+		$isRequestHeader = FALSE;
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $productivity = curl_exec($ch);
+        curl_close($ch);
+        //$json_a = json_decode($productivity, true);
+        //$arrbn_id = explode("$", $productivity);
+				  
+                 /*  $a_cardid = "";
                   $a_fullname = "";
                   $a_charged = "";
                   $a_link = "";
@@ -123,7 +133,7 @@ if($strchk[0]=="#"){
                     }
                   } */
                    //$txt = "บุคคลดังกล่าวมีหมายจับ".chr(10)."เลขบัตร  : ".$a_cardid.chr(10)."ชื่อ-นามสกุล : ".$a_fullname;
-				   $txt = $urlWithoutProtocol;
+				   $txt = $productivity;
                   if($a_fullname!=""){
                        $msg = "";
                        $cardid = "";
@@ -176,6 +186,15 @@ if($strchk[0]=="#"){
               $idcard = str_replace(' ', '', $idcard);
                   $request = "operation=Add&a_cardid=".$idcard;
                   $urlWithoutProtocol = "vpn.idms.pw/id_pdc/run_pdc.php?".$request ;
+				  
+		$isRequestHeader = FALSE;
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $productivity = curl_exec($ch);
+        curl_close($ch);
+				  
+				  
                  /*  $isRequestHeader = FALSE;
                   $ch = curl_init();
                   curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
@@ -246,8 +265,9 @@ if($strchk[0]=="#"){
                   } */
 				  
                    //$txt = "บุคคลดังกล่าวมีหมายจับ".chr(10)."เลขบัตร  : ".$a_cardid.chr(10)."ชื่อ-นามสกุล : ".$a_fullname;
-				   $txt = $urlWithoutProtocol;
-                  if($a_fullname!=""){
+				   $txt = $productivity;
+                  //if($a_fullname!=""){
+					  if($productivity!=""){
                        $msg = "";
                        $cardid = "";
                        $name = "";
