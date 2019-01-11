@@ -43,7 +43,7 @@ if ($show == "#") {
         $Latitude = $arrbn_id[5]; // Latitude
         $Longitude = $arrbn_id[6]; // Longitude
         $addresscustomer = $arrbn_id[7]; // address
- if ($Topup_Name != ""){      
+ if ($Real_Service_Amount != ""){      
         $arrPostData = array();
                 $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
