@@ -47,14 +47,14 @@ if ($show == "#") {
         $arrPostData = array();
                 $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
-        $arrPostData['messages'][0]['text'] = "เบอร์โทร : ". $idcard . "\r\n"
+      /*   $arrPostData['messages'][0]['text'] = "เบอร์โทร : ". $idcard . "\r\n"
 		        . "จำนวน : " . $Real_Service_Amount . "  บาท" ."\r\n"
                 . "เครือข่าย : " . $Service_Type . "\r\n"
 				. "เติมล่าสุด : " . $Start_date . "\r\n"
                 . "รหัสตู้ : " . $Topup_Name . "\r\n"
 				. "ชื่อ : " . $customer_name . "\r\n"
                 . "สถานที่ : " . $addresscustomer . "\r\n"
-                . "พิกัด : https://www.google.co.th/maps/place/" . $Latitude . "," . $Longitude;
+                . "พิกัด : https://www.google.co.th/maps/place/" . $Latitude . "," . $Longitude; */
 	
 }else{
      $arrPostData = array();
