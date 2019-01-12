@@ -198,12 +198,25 @@ if($strchk[0]=="#"){
                   $arrPostData["status"] = "0";
                   array_push($arrayloop,$arrPostData);
               }
-            }/* else{
+            } else{
               $idcard = str_replace(' ', '_', $idcard);
               $idcard = str_replace(' ', '', $idcard);
-                  $request = "operation=Add&a_cardid=".$idcard;
-                  $urlWithoutProtocol = "pdc.police.go.th/arrest/check_arrest.php?".$request ;
-                  $isRequestHeader = FALSE;
+			  //$idcard = urlencode($idcard)
+                  $request = urlencode($idcard);
+				  
+                  //$urlWithoutProtocol = "pdc.police.go.th/arrest/check_arrest.php?".$request ;
+				  
+				  $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/run_pdc.php?uid=" . $request;
+        $isRequestHeader = FALSE;
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $productivity = curl_exec($ch);
+        curl_close($ch);
+        //$json_a = json_decode($productivity, true);
+        $arrbn_id = explode("$", $productivity);
+				  
+                 /*  $isRequestHeader = FALSE;
                   $ch = curl_init();
                   curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
                   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -270,13 +283,16 @@ if($strchk[0]=="#"){
                               }
                               array_push($output,$a_charged.chr(10).$a_link.chr(10).$police.chr(10).$phone.chr(10).$status);
                     }
-                  }
-                   $txt = "บุคคลดังกล่าวมีหมายจับ".chr(10)."เลขบัตร  : ".$a_cardid.chr(10)."ชื่อ-นามสกุล : ".$a_fullname;
-                  if($a_fullname!=""){
-                       $msg = "";
+                  } */
+                   //$txt = "บุคคลดังกล่าวมีหมายจับ".chr(10)."เลขบัตร  : ".$a_cardid.chr(10)."ชื่อ-นามสกุล : ".$a_fullname;
+				     $Real_Service_Amount = $arrbn_id[0];
+                   $txt = "ชื่อ-นามสกุล : ". $idcard . "\r\n"
+		        .$Real_Service_Amount;
+                  if($Real_Service_Amount!=""){
+                      /*  $msg = "";
                        $cardid = "";
                        $name = "";
-                       $tb_status = "";
+                       $tb_status = ""; */
                         //$input = 'http://vpn.idms.pw:9977/polis/imagebyte?id='.$a_cardid;
                         //$dirimg = 'pic/';            // directory in which the image will be saved
                         //$localfile = $dirimg. $a_cardid.'.jpg';         // set image name the same as the file name of the source
@@ -284,7 +300,7 @@ if($strchk[0]=="#"){
                       //$r = file_put_contents($localfile, getContentUrl($input));
                         //"https://www.detectivepolice1.com/pic/".$a_cardid.".jpg";
 						
-						 $r = file_get_contents('http://vpn.idms.pw/id_pdc/index_image.php?uid='.$idcard);
+						/*  $r = file_get_contents('http://vpn.idms.pw/id_pdc/index_image.php?uid='.$idcard);
                         //echo $content;
 					   $rr = file_get_contents('http://www.kitsada.com/index_image.php?uid='.$idcard);
 						
@@ -308,10 +324,10 @@ if($strchk[0]=="#"){
                         $status = "1";
                       }else{
                         $status = "2";
-                      }
+                      } */
 					  
                       $arrPostData = array();
-                      $arrPostData["idcard"] = $a_cardid;
+                      $arrPostData["idcard"] = $idcard;
                       $arrPostData["detail"] = $txt;
                       $arrPostData["status"] = $status;
                       array_push($arrayloop,$arrPostData);
@@ -324,7 +340,7 @@ if($strchk[0]=="#"){
                       $arrPostData["status"] = "0";
                       array_push($arrayloop,$arrPostData);
                   }
-            } */
+            } 
         }
       }
   }  
