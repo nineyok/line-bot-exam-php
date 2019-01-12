@@ -27,8 +27,8 @@ $strchk = str_split($strexp);
     }*/
   //echo $strchk[0];
 $arrayloop = array();
-if($strchk[0]=="!"){
-  $arrstr  = explode( "!" , $strexp );
+if($strchk[0]=="#"){
+  $arrstr  = explode( "#" , $strexp );
   for($k=1 ; $k < count( $arrstr ) ; $k++ ){
     $arrstrdetail  = explode( "," , $arrstr[$k] );
     
@@ -36,7 +36,7 @@ if($strchk[0]=="!"){
       $sql_insert = "insert into tbl_linechkfight(lcf_cardid,lcf_detail,lcf_datetime)values('".$arrstrdetail[0]."','".$arrstrdetail[1]."','".date('Y-m-d H:i:s')."')";
       $query_insert = mysqli_query($conndb,$sql_insert);
     }
-    $strchk = "!".$arrstr[$k];
+    $strchk = "#".$arrstr[$k];
     $show = substr($strchk,0,1);
     $space = iconv("tis-620", "utf-8", substr($strchk,1,1) );
     $idcard = substr($strchk,1);
@@ -155,7 +155,7 @@ if($strchk[0]=="!"){
 					   $rr = file_get_contents('http://www.kitsada.com/index_image.php?uid='.$idcard);
 						
                         $status = "1";
-                        $txt = "";
+                        //$txt = "";
                       if($r == '1'){		   
                         $status = "1";
                       }else{
