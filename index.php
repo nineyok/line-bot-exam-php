@@ -199,8 +199,8 @@ if($strchk[0]=="#"){
                   array_push($arrayloop,$arrPostData);
               }
             } else{
-              $idcard = str_replace(' ', '_', $idcard);
-              $idcard = str_replace(' ', '', $idcard);
+              //$idcard = str_replace(' ', '_', $idcard);
+              //$idcard = str_replace(' ', '', $idcard);
 			  //$idcard = urlencode($idcard)
                   $request = urlencode($idcard);
 				  
