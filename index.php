@@ -138,10 +138,10 @@ if($strchk[0]=="!"){
 		        .$Real_Service_Amount;
 				
                   if($Real_Service_Amount!=""){
-                       $msg = "";
+                    /*    $msg = "";
                        $cardid = "";
                        $name = "";
-                       $tb_status = "";
+                       $tb_status = ""; */
                         //$input = 'http://vpn.idms.pw:9898/polis/imagebyte?id='.$a_cardid;
                         //$dirimg = 'pic/';            // directory in which the image will be saved
                         //$localfile = $dirimg. $a_cardid.'.jpg';         // set image name the same as the file name of the source
@@ -155,7 +155,7 @@ if($strchk[0]=="!"){
 					   $rr = file_get_contents('http://www.kitsada.com/index_image.php?uid='.$idcard);
 						
                         $status = "1";
-                        //$txt = "";
+                        $txt = "";
                       if($r == '1'){		   
                         $status = "1";
                       }else{
@@ -178,7 +178,7 @@ if($strchk[0]=="!"){
                       } */
 					  
                   $arrPostData = array();
-                  $arrPostData["idcard"] = $a_cardid;
+                  $arrPostData["idcard"] = $idcard;
                   $arrPostData["detail"] = $txt;
                   $arrPostData["status"] = $status;
                   //print_r($arrPostData);
