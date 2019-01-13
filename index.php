@@ -311,7 +311,7 @@ if($strchk[0]=="#"){
                   } */
                    //$txt = "บุคคลดังกล่าวมีหมายจับ".chr(10)."เลขบัตร  : ".$a_cardid.chr(10)."ชื่อ-นามสกุล : ".$a_fullname;
 				  $Real_Service_Amount = $productivity;
-				  $Real_Service_Amount = str_replace(array("\r\n", "\r", "\n"), "<br />"), '', $Real_Service_Amount);
+				  $Real_Service_Amount = str_replace(array("\r\n", "\r", "\n"), '', $Real_Service_Amount);
 				     $Real_Service_Amount = $productivity;
                    $txt = "ชื่อ-นามสกุล : ". $idcard . "\r\n"
 		        .$Real_Service_Amount;
