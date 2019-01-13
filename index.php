@@ -320,13 +320,15 @@ if($strchk[0]=="#"){
 				  
                   for ($start=0; $start < count($Real_Service); $start++) {
                   if($Real_Service[$start]!=""){
-	              $Real_Service_Amount = $Real_Service_Amount.$Real_Service[$start];
-                  }     
+	              $Real_Service_Amount = $Real_Service_Amount.$Real_Service[$start]. "\r\n";
+                  }elseif($start == ($numLine-1)){
+					  $Real_Service_Amount = $Real_Service_Amount.$Real_Service[$start];
+				  }     
                   }  
 				  
 				     //$Real_Service_Amount = $productivity;
                    $txt = "ชื่อ-นามสกุล : ". $idcard . "\r\n"
-		        .$Real_Service_Amount;
+		        .$Real_Service_Amount.$numLine;
                   if($Real_Service_Amount!=""){
                       /*  $msg = "";
                        $cardid = "";
