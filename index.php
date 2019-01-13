@@ -320,7 +320,7 @@ if($strchk[0]=="#"){
 				  
                   for ($start=0; $start < count($Real_Service); $start++) {
                   if($Real_Service[$start]!=""){
-	              $Real_Service_Amount = $start."1".$Real_Service[$start] . "<BR>";
+	              $Real_Service_Amount = $Real_Service_Amount.$Real_Service[$start] . "<BR>";
                   }     
                   }  
 				  
