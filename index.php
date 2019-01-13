@@ -134,8 +134,10 @@ if($strchk[0]=="#"){
                     }
                   } */
 				  $Real_Service_Amount = $arrbn_id[0];
-                   $txt = "เลขที่บัตร : ". $idcard . "\r\n"
-		        .$Real_Service_Amount;
+               /*     $txt = "เลขที่บัตร : ". $idcard . "\r\n"
+		        .$Real_Service_Amount; */
+				
+				 $txt = $Real_Service_Amount;
 				
                   if($Real_Service_Amount!=""){
                     /*    $msg = "";
@@ -460,11 +462,11 @@ $num=0;
                        $arrPostData['messages'][$num]['previewImageUrl'] = "https://www.kitsada.com/pic/".$idcard.".jpg";
                        $num++;
       }
-/*       if($detail != ""){
+      if($detail != ""){
                        $arrPostData['messages'][$num]['type'] = "text";
                        $arrPostData['messages'][$num]['text'] = $detail;
                        $num++;
-      } */
+      }
     }
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$strUrl);
