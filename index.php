@@ -221,8 +221,8 @@ if($strchk[0]=="#"){
               //$idcard = str_replace(' ', '_', $idcard);
               //$idcard = str_replace(' ', '', $idcard);
 			  //$idcard = urlencode($idcard)
-			      //$request = "";
-                  //$request = urlencode($idcard);
+			      $request = "";
+                  $request = urlencode($idcard);
 				  
                   //$urlWithoutProtocol = "pdc.police.go.th/arrest/check_arrest.php?".$request ;
 				  
@@ -372,7 +372,7 @@ if($strchk[0]=="#"){
                       
                       $arrPostData = array();
                       $arrPostData["idcard"] = $idcard;
-                      $arrPostData["detail"] = "ไม่พบหมายจับของบุคคลดังกล่าว ".$idcard;
+                      $arrPostData["detail"] = $txt;
                       $arrPostData["status"] = "0";
                       array_push($arrayloop,$arrPostData);
                   }
