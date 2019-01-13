@@ -137,7 +137,8 @@ if($strchk[0]=="#"){
 				  //$coutarr = count( $productivity );
 				  //$numLine = count(explode("\n",$productivity));
 				  
-				  //$Real_Service_Amount = $productivity.chr(10).$numLine;
+				  $Real_Service_Amount = $productivity;
+				  $Real_Service_Amount = str_replace(array("\n", "\r"), '', $Real_Service_Amount);
 				  //loop through the lines
 		/* 		  $aa=0;
                  foreach($productivity as $line){
@@ -150,10 +151,11 @@ if($strchk[0]=="#"){
                    } */
 				   
                 //$Real_Service_Amount = preg_replace( "/\r|\n/", "", $productivity );
-				$Real_Service_Amount = str_replace(array("\r\n", "\r", "\n"), "", $productivity);
-				//$Real_Service_Amount .= chr(10).$secondword;
-				  //$coutarr = count( $Real_Service_Amount );
-                  //$txt .= chr(10).$output[$coutarr-1];	
+				//$Real_Service_Amount = str_replace(array("\r\n", "\r", "\n"), "", $productivity);
+ 
+//An example piece of text that
+//contains (invisible) newline characters.
+//$Real_Service_Amount = str_replace(array("\n", "\r"), '', $Real_Service_Amount);
 
 	   			  
                  $txt = "เลขที่บัตร : ". $idcard . "\r\n"
@@ -308,6 +310,8 @@ if($strchk[0]=="#"){
                     }
                   } */
                    //$txt = "บุคคลดังกล่าวมีหมายจับ".chr(10)."เลขบัตร  : ".$a_cardid.chr(10)."ชื่อ-นามสกุล : ".$a_fullname;
+				  $Real_Service_Amount = $productivity;
+				  $Real_Service_Amount = str_replace(array("\n", "\r"), '', $Real_Service_Amount);
 				     $Real_Service_Amount = $productivity;
                    $txt = "ชื่อ-นามสกุล : ". $idcard . "\r\n"
 		        .$Real_Service_Amount;
