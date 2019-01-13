@@ -144,7 +144,7 @@ if($strchk[0]=="#"){
 				  
                   for ($start=0; $start < count($Real_Service); $start++) {
                   if($Real_Service[$start]!="" or ($start < ($numLine-3))){
-	              $Real_Service_Amount = $Real_Service_Amount.$Real_Service[$start]."1 ".$start. "\r\n";
+	                  //$Real_Service_Amount = $Real_Service_Amount.$Real_Service[$start]."1 ".$start. "\r\n";
                   }elseif($start == ($numLine-3)){
 					  $Real_Service_Amount = $Real_Service_Amount.$Real_Service[$start].$start;
 				  }     
