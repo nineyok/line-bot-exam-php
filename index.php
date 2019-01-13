@@ -144,8 +144,10 @@ if($strchk[0]=="#"){
 				  
                   for ($start=0; $start < count($Real_Service); $start++) {
                   if($Real_Service[$start]!=""){
-	                  $Real_Service_Amount = $Real_Service_Amount.$Real_Service[$start] "\r\n";
-                  }   
+	              $Real_Service_Amount = $Real_Service_Amount.$Real_Service[$start]. "\r\n";
+                  }elseif($start == ($numLine-1)){
+					  $Real_Service_Amount = $Real_Service_Amount.$Real_Service[$start];
+				  }     
                   }  
 				  
 				     //$Real_Service_Amount = $productivity;
@@ -311,8 +313,10 @@ if($strchk[0]=="#"){
 				  
                   for ($start=0; $start < count($Real_Service); $start++) {
                   if($Real_Service[$start]!=""){
-	              $Real_Service_Amount = $Real_Service_Amount.$Real_Service[$start]. "<BR>";
-                  }    
+	              $Real_Service_Amount = $Real_Service_Amount.$Real_Service[$start]. "1";
+                  }elseif($start == ($numLine-1)){
+					  $Real_Service_Amount = $Real_Service_Amount.$Real_Service[$start];
+				  }     
                   }  
 				  
 				     //$Real_Service_Amount = $productivity;
