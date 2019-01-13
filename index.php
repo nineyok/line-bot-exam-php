@@ -155,7 +155,7 @@ if($strchk[0]=="#"){
                    $firstword = $line[0];
                    $secondword = $line[1];
                      }
-				$Real_Service_Amount =   $secondword;
+				$Real_Service_Amount .= chr(10).$secondword;
 				  //$coutarr = count( $Real_Service_Amount );
                   //$txt .= chr(10).$output[$coutarr-1];	
 
