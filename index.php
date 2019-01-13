@@ -133,11 +133,14 @@ if($strchk[0]=="#"){
                               array_push($output,$a_charged.chr(10).$a_link.chr(10).$police.chr(10).$phone.chr(10).$status);
                     }
                   } */
+				  //$txt = "บุคคลดังกล่าวมีหมายจับ".chr(10)."เลขบัตร  : ".$a_cardid.chr(10)."ชื่อ-นามสกุล : ".$a_fullname;
 				  $coutarr = count( $productivity );
-				  $Real_Service_Amount .= chr(10).$productivity[$coutarr-1];
+				  //$numLine = count(explode("\n",$productivity));
+				  
+				  $Real_Service_Amount = $productivity.chr(10).$coutarr;
 				  
 				  
-				  $coutarr = count( $Real_Service_Amount );
+				  //$coutarr = count( $Real_Service_Amount );
                   //$txt .= chr(10).$output[$coutarr-1];	
 
 	   			  
