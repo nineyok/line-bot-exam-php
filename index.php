@@ -315,14 +315,16 @@ if($strchk[0]=="#"){
 				  
 				  //$text_line = "Poll number 1, 1500, 250, 150, 100, 1000";
                   $Real_Service = explode("\n",$Real_Service);
-
+				  
+                  $numLine = count(explode("\n",$productivity));
+				  
                   for ($start=0; $start < count($Real_Service); $start++) {
                   if($Real_Service[$start]!=""){
-	              $Real_Service_Amount = $Real_Service[$start] . "<BR>";
+	              //$Real_Service_Amount = $start.$Real_Service[$start] . "<BR>";
                   }     
                   }  
 				  
-				     $Real_Service_Amount = $productivity;
+				     //$Real_Service_Amount = $productivity;
                    $txt = "ชื่อ-นามสกุล : ". $idcard . "\r\n"
 		        .$Real_Service_Amount;
                   if($Real_Service_Amount!=""){
