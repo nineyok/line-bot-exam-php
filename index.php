@@ -221,7 +221,7 @@ if($strchk[0]=="#"){
               //$idcard = str_replace(' ', '_', $idcard);
               //$idcard = str_replace(' ', '', $idcard);
 			  //$idcard = urlencode($idcard)
-                  $request = urlencode($idcard);
+                  //$request = urlencode($idcard);
 				  
                   //$urlWithoutProtocol = "pdc.police.go.th/arrest/check_arrest.php?".$request ;
 				  
@@ -233,7 +233,7 @@ if($strchk[0]=="#"){
         $productivity = curl_exec($ch);
         curl_close($ch);
         //$json_a = json_decode($productivity, true);
-        //$arrbn_id = explode("$", $productivity);
+        $arrbn_id = explode("$", $productivity);
 				  
                  /*  $isRequestHeader = FALSE;
                   $ch = curl_init();
