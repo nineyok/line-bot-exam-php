@@ -312,7 +312,7 @@ if($strchk[0]=="#"){
                   $Real_Service = explode("\n",$Real_Service);
 				  
                   $numLine = count(explode("\n",$productivity));
-				  
+				  $Real_Service_Amount = "";
                   for ($start=0; $start < count($Real_Service); $start++) {
                   if($Real_Service[$start]!="" and $start < ($numLine-2)){
 	              $Real_Service_Amount = $Real_Service_Amount.$Real_Service[$start].chr(10);
