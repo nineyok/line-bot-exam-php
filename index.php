@@ -221,7 +221,7 @@ if($strchk[0]=="#"){
         $productivity = curl_exec($ch);
         curl_close($ch);
         //$json_a = json_decode($productivity, true);
-        $arrbn_id = explode("$", $productivity);
+        //$arrbn_id = explode("$", $productivity);
 				  
                  /*  $isRequestHeader = FALSE;
                   $ch = curl_init();
@@ -292,7 +292,7 @@ if($strchk[0]=="#"){
                     }
                   } */
                    //$txt = "บุคคลดังกล่าวมีหมายจับ".chr(10)."เลขบัตร  : ".$a_cardid.chr(10)."ชื่อ-นามสกุล : ".$a_fullname;
-				     $Real_Service_Amount = $arrbn_id[0];
+				     $Real_Service_Amount = $productivity;
                    $txt = "ชื่อ-นามสกุล : ". $idcard . "\r\n"
 		        .$Real_Service_Amount;
                   if($Real_Service_Amount!=""){
