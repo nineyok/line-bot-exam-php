@@ -133,31 +133,24 @@ if($strchk[0]=="#"){
                               array_push($output,$a_charged.chr(10).$a_link.chr(10).$police.chr(10).$phone.chr(10).$status);
                     }
                   } */
-				  //$txt = "บุคคลดังกล่าวมีหมายจับ".chr(10)."เลขบัตร  : ".$a_cardid.chr(10)."ชื่อ-นามสกุล : ".$a_fullname;
-				  //$coutarr = count( $productivity );
-				  //$numLine = count(explode("\n",$productivity));
+			      //$txt = "บุคคลดังกล่าวมีหมายจับ".chr(10)."เลขบัตร  : ".$a_cardid.chr(10)."ชื่อ-นามสกุล : ".$a_fullname;
+				  $Real_Service = $productivity;
+				  //$Real_Service_Amount = str_replace(array("\r\n", "\r", "\n"), '', $Real_Service_Amount);
 				  
-				  $Real_Service_Amount = $productivity;
-				  $Real_Service_Amount = str_replace(array("\n", "\r"), '', $Real_Service_Amount);
-				  //loop through the lines
-		/* 		  $aa=0;
-                 foreach($productivity as $line){
-					 $aa=$aa+1;
-					 if ($aa = $numLine){						 
-					 }else{
-						$Real_Service_Amount .= chr(10).$line; 
-					 }				 
-                 //echo "$line";
-                   } */
-				   
-                //$Real_Service_Amount = preg_replace( "/\r|\n/", "", $productivity );
-				//$Real_Service_Amount = str_replace(array("\r\n", "\r", "\n"), "", $productivity);
- 
-//An example piece of text that
-//contains (invisible) newline characters.
-//$Real_Service_Amount = str_replace(array("\n", "\r"), '', $Real_Service_Amount);
-
-	   			  
+				  //$text_line = "Poll number 1, 1500, 250, 150, 100, 1000";
+                  $Real_Service = explode("\n",$Real_Service);
+				  
+                  $numLine = count(explode("\n",$productivity));
+				  
+                  for ($start=0; $start < count($Real_Service); $start++) {
+                  if($Real_Service[$start]!=""){
+	              $Real_Service_Amount = $Real_Service_Amount.$Real_Service[$start]. "\r\n";
+                  }elseif($start == ($numLine-1)){
+					  $Real_Service_Amount = $Real_Service_Amount.$Real_Service[$start];
+				  }     
+                  }  
+				  
+				     //$Real_Service_Amount = $productivity;
                  $txt = "เลขที่บัตร : ". $idcard . "\r\n"
 		        .$Real_Service_Amount;
 				
@@ -328,7 +321,7 @@ if($strchk[0]=="#"){
 				  
 				     //$Real_Service_Amount = $productivity;
                    $txt = "ชื่อ-นามสกุล : ". $idcard . "\r\n"
-		        .$Real_Service_Amount.$numLine;
+		        .$Real_Service_Amount;
                   if($Real_Service_Amount!=""){
                       /*  $msg = "";
                        $cardid = "";
