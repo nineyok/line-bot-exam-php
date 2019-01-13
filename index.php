@@ -149,13 +149,8 @@ if($strchk[0]=="#"){
                  //echo "$line";
                    } */
 				   
-				   $eachLine = explode(PHP_EOL, $productivity); // best practice is to explode using EOL (End Of Line).
-                   foreach ($eachLine as $line) { 
-                   $line = explode(" ", $line);
-                   $firstword = $line[0];
-                   $secondword = $line[1];
-                     }
-				$Real_Service_Amount .= chr(10).$secondword;
+                $Real_Service_Amount = preg_replace( "/\r|\n/", "", $productivity );
+				//$Real_Service_Amount .= chr(10).$secondword;
 				  //$coutarr = count( $Real_Service_Amount );
                   //$txt .= chr(10).$output[$coutarr-1];	
 
