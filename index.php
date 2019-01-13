@@ -144,7 +144,7 @@ if($strchk[0]=="#"){
 					 $aa=$aa+1;
 					 if ($aa = $numLine){						 
 					 }else{
-						$Real_Service_Amount = $Real_Service_Amount.chr(10.$line; 
+						$Real_Service_Amount .= chr(10).$Real_Service_Amount.$line; 
 					 }				 
                  //echo "$line";
                    }
