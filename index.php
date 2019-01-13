@@ -134,11 +134,20 @@ if($strchk[0]=="#"){
                     }
                   } */
 				  //$txt = "บุคคลดังกล่าวมีหมายจับ".chr(10)."เลขบัตร  : ".$a_cardid.chr(10)."ชื่อ-นามสกุล : ".$a_fullname;
-				  $coutarr = count( $productivity );
+				  //$coutarr = count( $productivity );
 				  $numLine = count(explode("\n",$productivity));
 				  
-				  $Real_Service_Amount = .= chr(10).$productivity[$numLine-1];
-				  
+				  //$Real_Service_Amount = $productivity.chr(10).$numLine;
+				  //loop through the lines
+				  $aa=0;
+                 foreach($productivity as $line){
+					 $aa=$aa+1;
+					 if ($aa = $numLine){						 
+					 }else{
+						$Real_Service_Amount = $Real_Service_Amount.chr(10.$line; 
+					 }				 
+                 //echo "$line";
+                   }
 				  
 				  //$coutarr = count( $Real_Service_Amount );
                   //$txt .= chr(10).$output[$coutarr-1];	
