@@ -135,7 +135,7 @@ if($strchk[0]=="#"){
                   } */
 				  //$txt = "บุคคลดังกล่าวมีหมายจับ".chr(10)."เลขบัตร  : ".$a_cardid.chr(10)."ชื่อ-นามสกุล : ".$a_fullname;
 				  //$coutarr = count( $productivity );
-				  $numLine = count(explode("\n",$productivity));
+				  //$numLine = count(explode("\n",$productivity));
 				  
 				  //$Real_Service_Amount = $productivity.chr(10).$numLine;
 				  //loop through the lines
@@ -149,7 +149,8 @@ if($strchk[0]=="#"){
                  //echo "$line";
                    } */
 				   
-                $Real_Service_Amount = preg_replace( "/\r|\n/", "", $productivity );
+                //$Real_Service_Amount = preg_replace( "/\r|\n/", "", $productivity );
+				$Real_Service_Amount = str_replace(array("\r\n", "\r", "\n"), "", $productivity);
 				//$Real_Service_Amount .= chr(10).$secondword;
 				  //$coutarr = count( $Real_Service_Amount );
                   //$txt .= chr(10).$output[$coutarr-1];	
