@@ -317,10 +317,10 @@ if($strchk[0]=="#"){
                   $Real_Service = explode("\n",$Real_Service);
 
                   for ($start=0; $start < count($Real_Service); $start++) {
-
-                  $Real_Service_Amount = $Real_Service[$start] . "<BR>";
-
-                 } 
+                  if($Real_Service[$start]!=""){
+	              $Real_Service_Amount = $Real_Service[$start] . "<BR>";
+                  }     
+                  }  
 				  
 				     $Real_Service_Amount = $productivity;
                    $txt = "ชื่อ-นามสกุล : ". $idcard . "\r\n"
