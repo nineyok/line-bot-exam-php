@@ -133,7 +133,8 @@ if($strchk[0]=="#"){
                               array_push($output,$a_charged.chr(10).$a_link.chr(10).$police.chr(10).$phone.chr(10).$status);
                     }
                   } */
-				  $Real_Service_Amount = $arrbn_id[0];
+				  $coutarr = count( $productivity );
+				  $Real_Service_Amount .= chr(10).$productivity[$coutarr-1];
 				  
 				  
 				  $coutarr = count( $Real_Service_Amount );
