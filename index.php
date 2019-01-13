@@ -206,7 +206,7 @@ if($strchk[0]=="#"){
 				  
                   //$urlWithoutProtocol = "pdc.police.go.th/arrest/check_arrest.php?".$request ;
 				  
-				  $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/run_pdc.php?uid=" . $request;
+				  $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/run_pdc.php?uid=" .$request;
         $isRequestHeader = FALSE;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
@@ -460,11 +460,11 @@ $num=0;
                        $arrPostData['messages'][$num]['previewImageUrl'] = "https://www.kitsada.com/pic/".$idcard.".jpg";
                        $num++;
       }
-      if($detail != ""){
+/*       if($detail != ""){
                        $arrPostData['messages'][$num]['type'] = "text";
                        $arrPostData['messages'][$num]['text'] = $detail;
                        $num++;
-      }
+      } */
     }
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$strUrl);
