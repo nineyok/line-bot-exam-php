@@ -134,10 +134,15 @@ if($strchk[0]=="#"){
                     }
                   } */
 				  $Real_Service_Amount = $arrbn_id[0];
-               /*     $txt = "เลขที่บัตร : ". $idcard . "\r\n"
-		        .$Real_Service_Amount; */
+				  
+				  
+				  $coutarr = count( $Real_Service_Amount );
+                  //$txt .= chr(10).$output[$coutarr-1];	
+
+	   			  
+                   $txt = "เลขที่บัตร : ". $idcard . "\r\n"
+		        .$Real_Service_Amount;
 				
-				 $txt = $Real_Service_Amount;
 				
                   if($Real_Service_Amount!=""){
                     /*    $msg = "";
