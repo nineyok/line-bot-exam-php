@@ -230,7 +230,6 @@ if($strchk[0]=="#"){
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		$productivity = "";
         $productivity = curl_exec($ch);
         curl_close($ch);
         //$json_a = json_decode($productivity, true);
