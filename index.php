@@ -321,7 +321,7 @@ if($strchk[0]=="#"){
 				  
 				     //$Real_Service_Amount = $productivity;
                    $txt = "ชื่อ-นามสกุล : ". $idcard . "\r\n"
-		        .$Real_Service_Amount.$numLine;
+		        .$Real_Service_Amount;
                   if($Real_Service_Amount!=""){
                       /*  $msg = "";
                        $cardid = "";
