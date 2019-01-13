@@ -221,7 +221,7 @@ if($strchk[0]=="#"){
               //$idcard = str_replace(' ', '_', $idcard);
               //$idcard = str_replace(' ', '', $idcard);
 			  //$idcard = urlencode($idcard)
-                  //$request = urlencode($idcard);
+                  $request = urlencode($idcard);
 				  
                   //$urlWithoutProtocol = "pdc.police.go.th/arrest/check_arrest.php?".$request ;
 				  
