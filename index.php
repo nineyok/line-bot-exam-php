@@ -313,7 +313,7 @@ if($strchk[0]=="#"){
 				  $Real_Service_Amount = $productivity;
 				  $Real_Service_Amount = str_replace(array("\r\n", "\r", "\n"), '', $Real_Service_Amount);
 				     $Real_Service_Amount = $productivity;
-                   $txt = "ชื่อ-นามสกุล : ". $idcard . "\r\n"
+                   $txt = "ชื่อ-นามสกุล : ". $idcard . "\n"
 		        .$Real_Service_Amount;
                   if($Real_Service_Amount!=""){
                       /*  $msg = "";
