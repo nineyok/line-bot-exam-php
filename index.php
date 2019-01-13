@@ -137,7 +137,7 @@ if($strchk[0]=="#"){
 				  $coutarr = count( $productivity );
 				  $numLine = count(explode("\n",$productivity));
 				  
-				  $Real_Service_Amount = $productivity[$numLine-1].$numLine;
+				  $Real_Service_Amount = .= chr(10).$productivity[$numLine-1];
 				  
 				  
 				  //$coutarr = count( $Real_Service_Amount );
