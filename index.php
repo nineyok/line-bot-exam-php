@@ -139,7 +139,7 @@ if($strchk[0]=="#"){
 				  
 				  //$Real_Service_Amount = $productivity.chr(10).$numLine;
 				  //loop through the lines
-				  $aa=0;
+		/* 		  $aa=0;
                  foreach($productivity as $line){
 					 $aa=$aa+1;
 					 if ($aa = $numLine){						 
@@ -147,13 +147,20 @@ if($strchk[0]=="#"){
 						$Real_Service_Amount .= chr(10).$line; 
 					 }				 
                  //echo "$line";
-                   }
-				  
+                   } */
+				   
+				   $eachLine = explode(PHP_EOL, $productivity); // best practice is to explode using EOL (End Of Line).
+                   foreach ($eachLine as $line) { 
+                   $line = explode(" ", $line);
+                   $firstword = $line[0];
+                   $secondword = $line[1];
+                     }
+				$Real_Service_Amount =   $secondword;
 				  //$coutarr = count( $Real_Service_Amount );
                   //$txt .= chr(10).$output[$coutarr-1];	
 
 	   			  
-                   $txt = "เลขที่บัตร : ". $idcard . "\r\n"
+                 $txt = "เลขที่บัตร : ". $idcard . "\r\n"
 		        .$Real_Service_Amount;
 				
 				
@@ -170,7 +177,7 @@ if($strchk[0]=="#"){
                         //"https://www.detectivepolice1.com/pic/".$a_cardid.".jpg";
 						
 						
-					$r = file_get_contents('http://vpn.idms.pw/id_pdc/index_image.php?uid='.$idcard);
+					   $r = file_get_contents('http://vpn.idms.pw/id_pdc/index_image.php?uid='.$idcard);
                         //echo $content;
 					   $rr = file_get_contents('http://www.kitsada.com/index_image.php?uid='.$idcard);
 						
