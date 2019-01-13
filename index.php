@@ -168,17 +168,18 @@ if($strchk[0]=="#"){
                         //"https://www.detectivepolice1.com/pic/".$a_cardid.".jpg";
 						
 						
-					   $r = file_get_contents('http://vpn.idms.pw/id_pdc/index_image.php?uid='.$idcard);
+				/* 	   $r = file_get_contents('http://vpn.idms.pw/id_pdc/index_image.php?uid='.$idcard);
                         //echo $content;
-					   $rr = file_get_contents('http://www.kitsada.com/index_image.php?uid='.$idcard);
+					   
 						
                         $status = "1";
                         //$txt = "";
-                      if($r == '1'){		   
+                      if($r == '1'){
+						 $rr = file_get_contents('http://www.kitsada.com/index_image.php?uid='.$idcard);
                         $status = "1";
                       }else{
                         $status = "2";
-                      }
+                      } */
 						
 						 //$r = file_get_contents('http://vpn.idms.pw/id_pdc/index_image.php?uid='.$idcard);
                         //echo $content;
@@ -402,11 +403,12 @@ if($strchk[0]=="#"){
                       //$r = file_put_contents($localfile, getContentUrl($input));
                        $r = file_get_contents('http://vpn.idms.pw/id_pdc/index_image.php?uid='.$idcard);
                         //echo $content;
-					   $rr = file_get_contents('http://www.kitsada.com/index_image.php?uid='.$idcard);
+					  
 						
                         $status = "1";
                         $txt = "";
-                      if($r == '1'){		   
+                      if($r == '1'){
+					   $rr = file_get_contents('http://www.kitsada.com/index_image.php?uid='.$idcard);
                         $status = "1";
                       }else{
                         $status = "2";
