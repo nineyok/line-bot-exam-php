@@ -380,6 +380,53 @@ if($strchk[0]=="#"){
         }
       }
   }  
+}else if($strchk[0]=="$"){
+  $arrstr  = explode( "$" , $strexp );
+  for($k=1 ; $k < count( $arrstr ) ; $k++ ){
+      $strchk = "$".$arrstr[$k];
+	  //$strchk = "#".$arrstr[$k];
+    $show = substr($strchk,0,1);
+    $space = iconv("tis-620", "utf-8", substr($strchk,1,1) );
+    $idcard = substr($strchk,1);
+          $countid = strlen($idcard);
+          $chkid = substr($idcard,0,13);
+            	  
+     //$text  = “ข้อความที่1 2 3 4 5 6”;
+     $text_output= explode(” “, $idcard);
+     echo $text_output[0];
+     echo $text_output[1]; 
+	 
+        $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_bank.php?uid='".$text_output[0]."'&aid='".$text_output[1]."'";
+        $isRequestHeader = FALSE;
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $productivity = curl_exec($ch);
+        curl_close($ch);
+        //$json_a = json_decode($productivity, true);
+        $arrbn_id = explode("$", $productivity);
+		
+		$Real_Service_Amount = $arrbn_id[0];  //จำนวนเงิน
+        $Service_Type = $arrbn_id[1]; //เครือข่าย
+		
+		$txt = "ธนาคาร : ". $arrbn_id[0] . "\r\n"
+		."สาขา : ".$arrbn_id[1];
+		  if($Real_Service_Amount!=""){
+                      $arrPostData = array();
+                      $arrPostData["idcard"] = $idcard;
+                      $arrPostData["detail"] = $txt;
+                      $arrPostData["status"] = $status;
+                      array_push($arrayloop,$arrPostData);
+                  }else{
+                    $txt = "ไม่พบสาขาธนาคารดังกล่าว ".$idcard;
+                      
+                      $arrPostData = array();
+                      $arrPostData["idcard"] = $idcard;
+                      $arrPostData["detail"] = $txt;
+                      $arrPostData["status"] = "0";
+                      array_push($arrayloop,$arrPostData);
+                  }
+  }
 }else if($strchk[0]=="*"){
   $arrstr  = explode( "*" , $strexp );
   for($k=1 ; $k < count( $arrstr ) ; $k++ ){
