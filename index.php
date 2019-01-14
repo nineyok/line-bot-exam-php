@@ -16,17 +16,17 @@ $strexp = $arrJson['events'][0]['message']['text'];
 
 //_Y2hBzrTGtxkNdYTFIdwSHxFjUC_mX0b9vz-fM44
 
-if(isset($arrayJson['events'][0]['source']['userId']){
-      $id = $arrayJson['events'][0]['source']['userId'];
+if(isset($arrJson['events'][0]['source']['userId']){
+      $id = $arrJson['events'][0]['source']['userId'];
    }
-   else if(isset($arrayJson['events'][0]['source']['groupId'])){
-      $id = $arrayJson['events'][0]['source']['groupId'];
+   else if(isset($arrJson['events'][0]['source']['groupId'])){
+      $id = $arrJson['events'][0]['source']['groupId'];
    }
-   else if(isset($arrayJson['events'][0]['source']['room'])){
-      $id = $arrayJson['events'][0]['source']['room'];
+   else if(isset($arrJson['events'][0]['source']['room'])){
+      $id = $arrJson['events'][0]['source']['room'];
    }
    
-   //if ($id == "_Y2hBzrTGtxkNdYTFIdwSHxFjUC_mX0b9vz-fM44"){
+   if ($id == "_Y2hBzrTGtxkNdYTFIdwSHxFjUC_mX0b9vz-fM44"){
 	     
       //$strexp = "#1229900480178,FT-2536 fds5g45df4g5";
 $strchk = str_split($strexp);
@@ -593,5 +593,5 @@ function getContentUrl($url) {
             curl_close ($ch);
             return $file;
           } 
- //}		  
+ }		  
 ?>
