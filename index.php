@@ -26,7 +26,7 @@ if(isset($arrJson['events'][0]['source']['userId']){
       $id = $arrJson['events'][0]['source']['room'];
    }
    
-   if ($id == "_Y2hBzrTGtxkNdYTFIdwSHxFjUC_mX0b9vz-fM44"){
+   //if ($id == "_Y2hBzrTGtxkNdYTFIdwSHxFjUC_mX0b9vz-fM44"){
 	     
       //$strexp = "#1229900480178,FT-2536 fds5g45df4g5";
 $strchk = str_split($strexp);
@@ -535,7 +535,7 @@ if($strchk[0]=="#"){
             }
   }
 }
- }
+ //}
 $arrPostData = array();
 $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 $num=0;
