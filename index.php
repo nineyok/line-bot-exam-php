@@ -13,6 +13,21 @@ $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 $strexp = isset($_REQUEST['strexp']) ? $_REQUEST['strexp'] : '';
 $strexp = $arrJson['events'][0]['message']['text'];
+
+//_Y2hBzrTGtxkNdYTFIdwSHxFjUC_mX0b9vz-fM44
+
+if(isset($arrayJson['events'][0]['source']['userId']){
+      $id = $arrayJson['events'][0]['source']['userId'];
+   }
+   else if(isset($arrayJson['events'][0]['source']['groupId'])){
+      $id = $arrayJson['events'][0]['source']['groupId'];
+   }
+   else if(isset($arrayJson['events'][0]['source']['room'])){
+      $id = $arrayJson['events'][0]['source']['room'];
+   }
+   
+   if ($id == "_Y2hBzrTGtxkNdYTFIdwSHxFjUC_mX0b9vz-fM44"){
+	     
       //$strexp = "#1229900480178,FT-2536 fds5g45df4g5";
 $strchk = str_split($strexp);
     /*$show = substr($strexp,0,1);
@@ -577,5 +592,6 @@ function getContentUrl($url) {
             if($file === false) trigger_error(curl_error($ch));
             curl_close ($ch);
             return $file;
-          }  
+          } 
+ }		  
 ?>
