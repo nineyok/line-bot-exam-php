@@ -16,7 +16,7 @@ $strexp = $arrJson['events'][0]['message']['text'];
 
 //_Y2hBzrTGtxkNdYTFIdwSHxFjUC_mX0b9vz-fM44
 
-if(isset($arrJson['events'][0]['source']['userId']){
+/* if(isset($arrJson['events'][0]['source']['userId']){
       $id = $arrJson['events'][0]['source']['userId'];
    }
    else if(isset($arrJson['events'][0]['source']['groupId'])){
@@ -24,7 +24,7 @@ if(isset($arrJson['events'][0]['source']['userId']){
    }
    else if(isset($arrJson['events'][0]['source']['room'])){
       $id = $arrJson['events'][0]['source']['room'];
-   }
+   } */
    
    //if ($id == "_Y2hBzrTGtxkNdYTFIdwSHxFjUC_mX0b9vz-fM44"){
 	     
