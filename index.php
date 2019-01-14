@@ -393,8 +393,8 @@ if($strchk[0]=="#"){
             	  
      //$text  = “ข้อความที่1 2 3 4 5 6”;
      $text_output= explode(” “, $idcard);
-     echo $text_output[0];
-     echo $text_output[1]; 
+     //echo $text_output[0];
+     //echo $text_output[1]; 
 	 
         $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_bank.php?uid='".$text_output[0]."'&aid='".$text_output[1]."'";
         $isRequestHeader = FALSE;
@@ -404,7 +404,7 @@ if($strchk[0]=="#"){
         $productivity = curl_exec($ch);
         curl_close($ch);
         //$json_a = json_decode($productivity, true);
-        $arrbn_id = explode("$", $productivity);
+        $arrbn_id = explode("#", $productivity);
 		
 		$Real_Service_Amount = $arrbn_id[0];  //จำนวนเงิน
         $Service_Type = $arrbn_id[1]; //เครือข่าย
