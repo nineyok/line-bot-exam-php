@@ -535,7 +535,7 @@ if($strchk[0]=="#"){
             }
   }
 }
- 
+ }
 $arrPostData = array();
 $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 $num=0;
@@ -593,5 +593,5 @@ function getContentUrl($url) {
             curl_close ($ch);
             return $file;
           } 
- }		  
+ 		  
 ?>
