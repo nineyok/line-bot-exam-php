@@ -410,7 +410,7 @@ if($strchk[0]=="#"){
         $Service_Type = $arrbn_id[1]; //เครือข่าย
 		
 		$txt = "ธนาคาร : ". $arrbn_id[0] . "\r\n"
-		."สาขา : ".$arrbn_id[1].$text_output[0].$text_output[1];
+		."สาขา : ".$arrbn_id[1].$urlWithoutProtocol;
 		  if($Real_Service_Amount!=""){
                       $arrPostData = array();
                       $arrPostData["idcard"] = $idcard;
