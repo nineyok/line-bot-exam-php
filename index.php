@@ -395,8 +395,8 @@ if($strchk[0]=="#"){
      $text_output= explode(" ", $idcard);
      //echo $text_output[0];
      //echo $text_output[1]; 
-	 
-        $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_bank.php?uid=".$text_output[0]."&aid=".$text_output[1];
+	 $request = urlencode($text_output[0]);
+        $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_bank.php?uid=".$request."&aid=".$text_output[1];
         $isRequestHeader = FALSE;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
