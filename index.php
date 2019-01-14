@@ -424,9 +424,9 @@ if($strchk[0]=="#"){
 		
 		$Real_Service_Amount = $arrbn_id[0];  //จำนวนเงิน
         $Service_Type = $arrbn_id[1]; //เครือข่าย
-		
+		$id = $arrayJson['events'][0]['source']['userId'];
 		$txt = "ธนาคาร : ". $arrbn_id[0] . "\r\n"
-		."สาขา : ".$arrbn_id[1];
+		."สาขา : ".$arrbn_id[1].$id;
 		  if($arrbn_id[1]!=""){
                       $arrPostData = array();
                       $arrPostData["idcard"] = $idcard;
