@@ -396,7 +396,7 @@ if($strchk[0]=="#"){
      //echo $text_output[0];
      //echo $text_output[1]; 
 	 $request = urlencode($text_output[0]);
-	 $request1 = substr($string, 0, -9);
+	 $request1 = substr($request, 0, -9);
         $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_bank.php?uid=".$request1."&aid=".$text_output[1];
         $isRequestHeader = FALSE;
         $ch = curl_init();
@@ -411,8 +411,7 @@ if($strchk[0]=="#"){
         $Service_Type = $arrbn_id[1]; //เครือข่าย
 		
 		$txt = "ธนาคาร : ". $arrbn_id[0] . "\r\n"
-		."สาขา : ".$arrbn_id[1].$urlWithoutProtocol. "\r\n"
-		.$text_output[0].$text_output[1];
+		."สาขา : ".$arrbn_id[1];
 		  if($Real_Service_Amount!=""){
                       $arrPostData = array();
                       $arrPostData["idcard"] = $idcard;
