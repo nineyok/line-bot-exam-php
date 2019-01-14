@@ -14,6 +14,9 @@ $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 $strexp = isset($_REQUEST['strexp']) ? $_REQUEST['strexp'] : '';
 $strexp = $arrJson['events'][0]['message']['text'];
 
+//C57ef75ec0b7162d316d8a127c1a1a53d  
+//C16d90f20cabd2ca50d11165626aff0c6
+
 //_Y2hBzrTGtxkNdYTFIdwSHxFjUC_mX0b9vz-fM44
 
 /* if(isset($arrJson['events'][0]['source']['userId']){
@@ -25,8 +28,9 @@ $strexp = $arrJson['events'][0]['message']['text'];
    else if(isset($arrJson['events'][0]['source']['room'])){
       $id = $arrJson['events'][0]['source']['room'];
    } */
+   $id = $arrJson['events'][0]['source']['groupId'];
    
-   //if ($id == "_Y2hBzrTGtxkNdYTFIdwSHxFjUC_mX0b9vz-fM44"){
+   if (($id == "C57ef75ec0b7162d316d8a127c1a1a53d") or ($id == "C16d90f20cabd2ca50d11165626aff0c6")){
 	     
       //$strexp = "#1229900480178,FT-2536 fds5g45df4g5";
 $strchk = str_split($strexp);
@@ -424,9 +428,9 @@ if($strchk[0]=="#"){
 		
 		$Real_Service_Amount = $arrbn_id[0];  //จำนวนเงิน
         $Service_Type = $arrbn_id[1]; //เครือข่าย
-		$id = $arrJson['events'][0]['source']['groupId'];
+		//$id = $arrJson['events'][0]['source']['groupId'];
 		$txt = "ธนาคาร : ". $arrbn_id[0] . "\r\n"
-		."สาขา : ".$arrbn_id[1].$id;
+		."สาขา : ".$arrbn_id[1];
 		  if($arrbn_id[1]!=""){
                       $arrPostData = array();
                       $arrPostData["idcard"] = $idcard;
@@ -535,7 +539,7 @@ if($strchk[0]=="#"){
             }
   }
 }
- //}
+
 $arrPostData = array();
 $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 $num=0;
@@ -593,5 +597,5 @@ function getContentUrl($url) {
             curl_close ($ch);
             return $file;
           } 
- 		  
+ 		 }  
 ?>
