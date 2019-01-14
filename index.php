@@ -386,7 +386,7 @@ if($strchk[0]=="#"){
       $strchk = "$".$arrstr[$k];
 	  //$strchk = "#".$arrstr[$k];
     $show = substr($strchk,0,1);
-    //$space = iconv("tis-620", "utf-8", substr($strchk,1,1) );
+    $space = iconv("tis-620", "utf-8", substr($strchk,1,1) );
     $idcard = substr($strchk,1);
           $countid = strlen($idcard);
           $chkid = substr($idcard,0,13);
@@ -396,7 +396,8 @@ if($strchk[0]=="#"){
      //echo $text_output[0];
      //echo $text_output[1]; 
 	 $request = urlencode($text_output[0]);
-        $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_bank.php?uid=".$request."&aid=".$text_output[1];
+	 $request1 = substr($string, 0, -9)
+        $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_bank.php?uid=".$request1."&aid=".$text_output[1];
         $isRequestHeader = FALSE;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
