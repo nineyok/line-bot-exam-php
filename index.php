@@ -392,7 +392,7 @@ if($strchk[0]=="#"){
           $chkid = substr($idcard,0,13);
             	  
      //$text  = “ข้อความที่1 2 3 4 5 6”;
-     $text_output= explode(" ", $idcard);
+     $text_output= explode("_", $idcard);
      //echo $text_output[0];
      //echo $text_output[1]; 
 	 $request = urlencode($text_output[0]);
