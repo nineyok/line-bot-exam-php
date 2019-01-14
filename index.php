@@ -396,7 +396,7 @@ if($strchk[0]=="#"){
      //echo $text_output[0];
      //echo $text_output[1]; 
 	 $request = urlencode($text_output[0]);
-	 $request1 = substr($string, 0, -9)
+	 $request1 = substr($string, 0, -9);
         $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_bank.php?uid=".$request1."&aid=".$text_output[1];
         $isRequestHeader = FALSE;
         $ch = curl_init();
