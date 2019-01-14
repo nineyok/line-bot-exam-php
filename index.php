@@ -386,13 +386,13 @@ if($strchk[0]=="#"){
       $strchk = "$".$arrstr[$k];
 	  //$strchk = "#".$arrstr[$k];
     $show = substr($strchk,0,1);
-    $space = iconv("tis-620", "utf-8", substr($strchk,1,1) );
+    //$space = iconv("tis-620", "utf-8", substr($strchk,1,1) );
     $idcard = substr($strchk,1);
           $countid = strlen($idcard);
           $chkid = substr($idcard,0,13);
             	  
      //$text  = “ข้อความที่1 2 3 4 5 6”;
-     $text_output= explode("_", $idcard);
+     $text_output= explode(" ", $idcard);
      //echo $text_output[0];
      //echo $text_output[1]; 
 	 $request = urlencode($text_output[0]);
