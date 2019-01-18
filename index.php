@@ -415,7 +415,7 @@ if($strchk[0]=="#"){
      $text_output= explode(" ", $idcard);
      //echo $text_output[0];
      //echo $text_output[1]; 
-	 if(is_string($text_output[0])){
+	 if(substr($text_output[0],0,1)!="0"){
 		$request = urlencode($text_output[0]);
 	    $request1 = substr($request, 0, -9);
         $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_bank.php?uid=".$request1."&aid=".$text_output[1];
