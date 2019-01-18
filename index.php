@@ -14,8 +14,9 @@ $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 $strexp = isset($_REQUEST['strexp']) ? $_REQUEST['strexp'] : '';
 $strexp = $arrJson['events'][0]['message']['text'];
 
-//C57ef75ec0b7162d316d8a127c1a1a53d  
-//C16d90f20cabd2ca50d11165626aff0c6
+//C57ef75ec0b7162d316d8a127c1a1a53d  nacotics
+//C16d90f20cabd2ca50d11165626aff0c6  autobot
+//Ce4560a5afc09286767ef80d9990aa1ac  kitsada
 
 //_Y2hBzrTGtxkNdYTFIdwSHxFjUC_mX0b9vz-fM44
 
@@ -414,8 +415,9 @@ if($strchk[0]=="#"){
      $text_output= explode(" ", $idcard);
      //echo $text_output[0];
      //echo $text_output[1]; 
-	 $request = urlencode($text_output[0]);
-	 $request1 = substr($request, 0, -9);
+	 if(is_string($text_output[0])){
+		$request = urlencode($text_output[0]);
+	    $request1 = substr($request, 0, -9);
         $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_bank.php?uid=".$request1."&aid=".$text_output[1];
         $isRequestHeader = FALSE;
         $ch = curl_init();
@@ -429,6 +431,7 @@ if($strchk[0]=="#"){
 		$Real_Service_Amount = $arrbn_id[0];  //จำนวนเงิน
         $Service_Type = $arrbn_id[1]; //เครือข่าย
 		//$id = $arrJson['events'][0]['source']['groupId'];
+		$txt = "";
 		$txt = "ธนาคาร : ". $arrbn_id[0] . "\r\n"
 		."สาขา : ".$arrbn_id[1];
 		  if($arrbn_id[1]!=""){
@@ -446,6 +449,9 @@ if($strchk[0]=="#"){
                       $arrPostData["status"] = "0";
                       array_push($arrayloop,$arrPostData);
                   }
+		 
+	 }
+	 
   }
 }else if($strchk[0]=="*"){
   $arrstr  = explode( "*" , $strexp );
