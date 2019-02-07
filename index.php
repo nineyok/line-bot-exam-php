@@ -493,6 +493,76 @@ if($strchk[0]=="#"){
                       $arrPostData["status"] = $status;
                       //print_r($arrPostData);
                       array_push($arrayloop,$arrPostData);
+              }else{
+                  $arrPostData = array();
+                  $arrPostData["idcard"] = $idcard;
+                  $arrPostData["detail"] = "เลขบัตรประชาชนไม่ถูกต้อง : ".$idcard;
+                  $arrPostData["status"] = "0";
+                  array_push($arrayloop,$arrPostData);
+              }
+            }
+  }
+}else if($strchk[0]=="%"){
+  $arrstr  = explode( "%" , $strexp );
+  for($k=1 ; $k < count( $arrstr ) ; $k++ ){
+      $strchk = "%".$arrstr[$k];
+      $idcard = substr($strchk,1);
+      $chkid = substr($idcard,0,13);
+            if(is_numeric($chkid)){
+              $countid = strlen($chkid);
+              if($countid == "13"){
+                $idcard = $chkid;
+              }
+            }
+            if(is_numeric($idcard)){
+              $countid = strlen($idcard);
+              if($countid == "13"){
+        $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_emp.php?uid=" . $idcard;
+        $isRequestHeader = FALSE;
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $productivity = curl_exec($ch);
+        curl_close($ch);
+
+        $arrbn_id = explode("#", $productivity);
+
+	    $t_id = $arrbn_id[0];  //id
+        $t_name = $arrbn_id[1]; //ชื่อ
+        $t_nickname = $arrbn_id[2]; // ชื่อเล่น
+        $t_tel = $arrbn_id[3]; // เบอร์โทร
+        $t_add = $arrbn_id[4]; // ที่อยู่
+        $t_emp = $arrbn_id[5]; // ประวัติการจับกุม
+		
+	    $txt = "";
+		$txt = "เลขบัตร : ". $idcard . "\r\n"
+		        . "ชื่อ-สกุล : " . $t_name ."\r\n"
+                . "ชื่อเล่น : " . $t_nickname . "\r\n"
+				. "เบอร์โทร : " . $t_tel . "\r\n"
+                . "ที่อยู่ : " . $t_add . "\r\n"
+				. "". $t_emp;
+		  if($arrbn_id[1]!=""){
+                      $arrPostData = array();
+                      $arrPostData["idcard"] = $idcard;
+                      $arrPostData["detail"] = $txt;
+                      $arrPostData["status"] = $status;
+                      array_push($arrayloop,$arrPostData);
+                  }else{
+                    $txt = "ไม่พบข้อมูลที่ค้นหา : ".$idcard;
+                      
+                      $arrPostData = array();
+                      $arrPostData["idcard"] = $idcard;
+                      $arrPostData["detail"] = $txt;
+                      $arrPostData["status"] = "0";
+                      array_push($arrayloop,$arrPostData);
+                  }
+		
+              }else{
+                  $arrPostData = array();
+                  $arrPostData["idcard"] = $idcard;
+                  $arrPostData["detail"] = "เลขบัตรประชาชนไม่ถูกต้อง : ".$idcard;
+                  $arrPostData["status"] = "0";
+                  array_push($arrayloop,$arrPostData);
               }
             }
   }
