@@ -495,7 +495,8 @@ if($strchk[0]=="#"){
                       array_push($arrayloop,$arrPostData);
               }
             }
-  }else if($strchk[0]=="&"){
+  }
+}else if($strchk[0]=="&"){
 	  $arrstr  = explode( "&" , $strexp );
   for($k=1 ; $k < count( $arrstr ) ; $k++ ){
       $strchk = "$".$arrstr[$k];
