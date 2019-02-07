@@ -503,11 +503,11 @@ if($strchk[0]=="#"){
 	  //$strchk = "#".$arrstr[$k];
     $show = substr($strchk,0,1);
     $space = iconv("tis-620", "utf-8", substr($strchk,1,1) );
-    $passport = substr($strchk,1);
+    $idcard = substr($strchk,1);
           $countid = strlen($idcard);
           $chkid = substr($idcard,0,13);
-		     if ($passport != "") {
-        $urlWithoutProtocol = "http://www.immigrationsms.com/Line/overcheck.php?uid=" . $passport;
+		     if ($idcard != "") {
+        $urlWithoutProtocol = "http://www.immigrationsms.com/Line/overcheck.php?uid=" . $idcard;
         $isRequestHeader = FALSE;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
@@ -532,7 +532,7 @@ if($strchk[0]=="#"){
 
         $seconds = strtotime($visaext) - strtotime(date("Y-m-d"));
         $total_over = floor($seconds / 86400);  //จำนวนวันคงเหลือ
-        $arrPostData = array();
+ /*        $arrPostData = array();
 //      $arrPostData['to'] = $id;
         $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
@@ -547,7 +547,30 @@ if($strchk[0]=="#"){
                     . "เบอร์โทรศัพท์ : " . $phonenumber . "\r\n"
                     . "ที่อยู่ : " . $AddressCus . "\r\n"
                     . "วันที่ครบกำหนด : " . $visaext . " (อีก " . $total_over . " วัน)";
-        }
+        } */
+		
+			$txt = "";
+		$txt = "Passport No. : " . $passport . "\r\n"
+                    . "ชื่อ-สกุล : " . $name . "\r\n"
+                    . "สัญชาติ : " . $nationality . "\r\n"
+                    . "เบอร์โทรศัพท์ : " . $phonenumber . "\r\n"
+                    . "ที่อยู่ : " . $AddressCus . "\r\n"
+                    . "วันที่ครบกำหนด : " . $visaext . " (อีก " . $total_over . " วัน)";
+		  if($arrbn_id[1]!=""){
+                      $arrPostData = array();
+                      $arrPostData["idcard"] = $idcard;
+                      $arrPostData["detail"] = $txt;
+                      $arrPostData["status"] = $status;
+                      array_push($arrayloop,$arrPostData);
+                  }else{
+                    $txt = "ไม่พบข้อมูลที่ค้นหา : ".$idcard;
+                      
+                      $arrPostData = array();
+                      $arrPostData["idcard"] = $idcard;
+                      $arrPostData["detail"] = $txt;
+                      $arrPostData["status"] = "0";
+                      array_push($arrayloop,$arrPostData);
+                  }
     }
 		  
 		  
