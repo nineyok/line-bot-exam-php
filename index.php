@@ -495,7 +495,64 @@ if($strchk[0]=="#"){
                       array_push($arrayloop,$arrPostData);
               }
             }
-  }
+  }else if($strchk[0]=="&"){
+	  $arrstr  = explode( "&" , $strexp );
+  for($k=1 ; $k < count( $arrstr ) ; $k++ ){
+      $strchk = "$".$arrstr[$k];
+	  //$strchk = "#".$arrstr[$k];
+    $show = substr($strchk,0,1);
+    $space = iconv("tis-620", "utf-8", substr($strchk,1,1) );
+    $passport = substr($strchk,1);
+          $countid = strlen($idcard);
+          $chkid = substr($idcard,0,13);
+		     if ($passport != "") {
+        $urlWithoutProtocol = "http://www.immigrationsms.com/Line/overcheck.php?uid=" . $passport;
+        $isRequestHeader = FALSE;
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $productivity = curl_exec($ch);
+        curl_close($ch);
+
+//        $json_a = json_decode($productivity, true);
+        $arrbn_id = explode("$", $productivity);
+        $id_passport = $arrbn_id[0];  //No. Passport
+        $name = $arrbn_id[1];  //ชื่อ
+        $nationality = $arrbn_id[2]; //สัญชาติ
+        $sex = $arrbn_id[3]; // เพศ
+        $birthday = $arrbn_id[4]; // วันเกิด
+        $passport = $arrbn_id[5]; // เลขที่ passport
+        $entrance = $arrbn_id[6]; // วันที่เข้า
+        $visaext = $arrbn_id[7]; // วันครบกำหนด
+        $phonenumber = $arrbn_id[8]; // เบอร์โทรศํพท์
+        $AddressCus = $arrbn_id[9]; // ที่อยู่
+        $sended_sms = $arrbn_id[10]; // ที่อยู่
+
+
+        $seconds = strtotime($visaext) - strtotime(date("Y-m-d"));
+        $total_over = floor($seconds / 86400);  //จำนวนวันคงเหลือ
+        $arrPostData = array();
+//      $arrPostData['to'] = $id;
+        $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+        $arrPostData['messages'][0]['type'] = "text";
+         if ($passport == "") {
+            $arrPostData['messages'][0]['text'] = "--ไม่พบข้อมูลที่ค้นหา--";
+        } else {
+           
+            $arrPostData['messages'][0]['text'] = ""
+                      . "Passport No. : " . $passport . "\r\n"
+                    . "ชื่อ-สกุล : " . $name . "\r\n"
+                    . "สัญชาติ : " . $nationality . "\r\n"
+                    . "เบอร์โทรศัพท์ : " . $phonenumber . "\r\n"
+                    . "ที่อยู่ : " . $AddressCus . "\r\n"
+                    . "วันที่ครบกำหนด : " . $visaext . " (อีก " . $total_over . " วัน)";
+        }
+    }
+		  
+		  
+		  
+        }
+	  }
 }else if($strchk[0]=="@"){
   $arrstr  = explode( "@" , $strexp );
   for($k=1 ; $k < count( $arrstr ) ; $k++ ){
