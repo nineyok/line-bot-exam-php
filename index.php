@@ -553,7 +553,7 @@ if($strchk[0]=="#"){
 		  
 		  
         }
-	  }
+	  
 }else if($strchk[0]=="@"){
   $arrstr  = explode( "@" , $strexp );
   for($k=1 ; $k < count( $arrstr ) ; $k++ ){
