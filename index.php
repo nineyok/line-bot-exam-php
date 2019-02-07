@@ -499,7 +499,7 @@ if($strchk[0]=="#"){
 }else if($strchk[0]=="&"){
 	  $arrstr  = explode( "&" , $strexp );
   for($k=1 ; $k < count( $arrstr ) ; $k++ ){
-      $strchk = "$".$arrstr[$k];
+      $strchk = "&".$arrstr[$k];
 	  //$strchk = "#".$arrstr[$k];
     $show = substr($strchk,0,1);
     $space = iconv("tis-620", "utf-8", substr($strchk,1,1) );
