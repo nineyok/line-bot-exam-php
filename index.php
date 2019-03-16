@@ -72,8 +72,9 @@ if($strchk[0]=="#"){
               }
             }
             if(is_numeric($idcard)){
-              $countid = strlen($idcard);
-              if($countid == "13"){
+              //$countid = strlen($idcard);
+              //if($countid == "13"){
+				  if(checkPID($idcard)){
                 $request = "operation=Add&a_cardid=".$idcard;
 				
 		$urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/run_pdc.php?uid=" . $idcard;
