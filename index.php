@@ -518,8 +518,9 @@ if($strchk[0]=="#"){
               }
             }
             if(is_numeric($idcard)){
-              $countid = strlen($idcard);
-              if($countid == "13"){
+              //$countid = strlen($idcard);
+              //if($countid == "13"){
+				  if(checkPID($idcard)){
         $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_emp.php?uid=" . $idcard;
         $isRequestHeader = FALSE;
         $ch = curl_init();
