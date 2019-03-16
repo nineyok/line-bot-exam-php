@@ -17,6 +17,7 @@ $strexp = $arrJson['events'][0]['message']['text'];
 //C57ef75ec0b7162d316d8a127c1a1a53d  nacotics
 //C16d90f20cabd2ca50d11165626aff0c6  autobot
 //Ce4560a5afc09286767ef80d9990aa1ac  kitsada
+//C75d1acd2a65e031632f656fb0aba51b2  นางรอง
 
 //_Y2hBzrTGtxkNdYTFIdwSHxFjUC_mX0b9vz-fM44
 
@@ -31,7 +32,7 @@ $strexp = $arrJson['events'][0]['message']['text'];
    } */
    $id = $arrJson['events'][0]['source']['groupId'];
    
-   //if (($id == "C57ef75ec0b7162d316d8a127c1a1a53d") or ($id == "C16d90f20cabd2ca50d11165626aff0c6")){
+   if (($id == "C57ef75ec0b7162d316d8a127c1a1a53d") or ($id == "C16d90f20cabd2ca50d11165626aff0c6") or ($id == "C75d1acd2a65e031632f656fb0aba51b2")){
 	     
       //$strexp = "#1229900480178,FT-2536 fds5g45df4g5";
 $strchk = str_split($strexp);
@@ -171,8 +172,7 @@ if($strchk[0]=="#"){
                   }  
 				  
 				     //$Real_Service_Amount = $productivity;
-                 //$txt = "เลขที่บัตร : ". $idcard . "\r\n"
-			 $txt = "เลขที่บัตร : ". $id . "\r\n"
+                 $txt = "เลขที่บัตร : ". $idcard . "\r\n"
 		        .$Real_Service_Amount;
 				
 				
@@ -755,5 +755,5 @@ function getContentUrl($url) {
             curl_close ($ch);
             return $file;
           } 
- 		 //}  
+ 		 }  
 ?>
