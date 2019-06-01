@@ -1,5 +1,5 @@
 <?php
-$strAccessToken = "23xebjdkk2okjNebbUtX4Lcpt1luZG62SqgmC5mXGpVCGLE6Ph9D0UZlqV4r4CAV3SExo817HCl08T3KmBstz3/9G2zWU8+GxhSU+rWcJ2EoSNQsuUbJk0eo6iRc72RZokDiI07Xyvf9qPUiOvksFQdB04t89/1O/w1cDnyilFU=";
+$strAccessToken = "nNoHchQKGEIQ2TVahOXh2fhXGU9d3lETBm/AaOGRYR9JPJrUxRiP0o+ZVV2Nh/+yebTQviq+2LdcuAlF60C1QVpiPsp6a7c8mIzsELQ7ofpeafjNQOpD1NZhwx4ywlb2NeaQdfopcGsK+JlKyWfXRAdB04t89/1O/w1cDnyilFU=";
 $hostname_condb="localhost";
 $username_condb="kitsadac";
 $password_conndb="55zc56sCHd";
@@ -19,6 +19,7 @@ $strexp = $arrJson['events'][0]['message']['text'];
 //Ce4560a5afc09286767ef80d9990aa1ac  kitsada
 //C75d1acd2a65e031632f656fb0aba51b2  นางรอง
 //C6f6cec58173d7b991df098147b7c8bea  ตม แม่กลอง
+//Cd0678ea6fb9c9f8ab883c8a7d4e831d6  GEN Y GROP
 
 //_Y2hBzrTGtxkNdYTFIdwSHxFjUC_mX0b9vz-fM44
 
@@ -659,49 +660,120 @@ if($strchk[0]=="#"){
       $strchk = "@".$arrstr[$k];
       $idcard = substr($strchk,1);
       $chkid = substr($idcard,0,13);
-            if(is_numeric($chkid)){
-              $countid = strlen($chkid);
-              if($countid == "13"){
-                $idcard = $chkid;
-              }
-            }
-            if(is_numeric($idcard)){
-              $countid = strlen($idcard);
-                      
-                  $request = "a_cardid=".$idcard;
-                  $urlWithoutProtocol = "http://vpn.idms.pw:81/searchphone/api_chkphonenum.php?".$request ;
+	     if ($idcard != "") {
+                       $urlWithoutProtocol = "http://vpn.idms.pw/auth/selectuser.php?uid=".$idcard ;
+                $isRequestHeader = FALSE;
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                $productivity = curl_exec($ch);
+                curl_close($ch);
+                //$json_a = json_decode($productivity, true);
+                $arrbn_id  = explode( "?" , $productivity );
+                //print_r($arrbn_id);
+
+                if(is_numeric(substr($arrbn_id[0],0,1))){
+                  $urlWithoutProtocol = "http://vpn.idms.pw/auth/auth.php?pid=".$arrbn_id[0]."&cid=".$arrbn_id[1] ;
                   $isRequestHeader = FALSE;
                   $ch = curl_init();
                   curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
                   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
                   $productivity = curl_exec($ch);
                   curl_close($ch);
-                  $json_b = json_decode($productivity, true); 
-                  print_r($productivity);
-                  $dpn_phone = "";
-                  $dpn_idcard = "";
-                  foreach($json_b as $key) { 
-                    foreach ($key as $key_b => $value) {
-                      if($key_b=="dpn_phone"){
-                        $dpn_phone .= $value." , ";
-                        $count_a++;
-                      }
-                      if($key_b=="dpn_idcard"){
-                        $dpn_idcard = $value;
-                      }
-                    }
-                  }
-                        $status = "2";
+                  	
+		$txt = "";
+		$txt = $productivity;
+		  if($arrbn_id[1]!=""){
                       $arrPostData = array();
                       $arrPostData["idcard"] = $idcard;
-                      $arrPostData["detail"] = $dpn_phone;
+                      $arrPostData["detail"] = $txt;
                       $arrPostData["status"] = $status;
-                      //print_r($arrPostData);
                       array_push($arrayloop,$arrPostData);
-              
-            }
+                  }else{
+                    $txt = "ไม่พบข้อมูลที่ค้นหา : ".$idcard;
+                      
+                      $arrPostData = array();
+                      $arrPostData["idcard"] = $idcard;
+                      $arrPostData["detail"] = $txt;
+                      $arrPostData["status"] = "0";
+                      array_push($arrayloop,$arrPostData);
+                  }
+    }
   }
 }
+}else if($strchk[0]=="!"){
+  $arrstr  = explode( "!" , $strexp );
+  for($k=1 ; $k < count( $arrstr ) ; $k++ ){
+      $strchk = "!".$arrstr[$k];
+      $idcard = substr($strchk,1);
+      $chkid = substr($idcard,0,10);
+	   if(is_numeric($chkid)){
+              $countid = strlen($chkid);
+              if($countid == "10"){
+                $idcard = $chkid;
+              }
+            }
+	  if(is_numeric($idcard)){
+	     if ($idcard != "") {
+                   $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/run_ussd.php?uid=".$idcard ;
+                   $isRequestHeader = FALSE;
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $productivity = curl_exec($ch);
+        curl_close($ch);
+                  	
+		$txt = "";
+		$txt = $productivity;
+		$txt = preg_replace("/\r\n|\r|\n/", ' ', $txt); 
+		  if($productivity!=""){
+                      $arrPostData = array();
+                      $arrPostData["idcard"] = $idcard;
+                      $arrPostData["detail"] = $txt;
+                      $arrPostData["status"] = $status;
+                      array_push($arrayloop,$arrPostData);
+                  }else{
+                    $txt = "ไม่พบข้อมูลที่ค้นหา : ".$idcard;
+                      
+                      $arrPostData = array();
+                      $arrPostData["idcard"] = $idcard;
+                      $arrPostData["detail"] = $txt;
+                      $arrPostData["status"] = "0";
+                      array_push($arrayloop,$arrPostData);
+                  }
+    }
+  }else{
+                  $arrPostData = array();
+                  $arrPostData["idcard"] = $idcard;
+                  $arrPostData["detail"] = "หมายเลขโทรศัพท์ไม่ถูกต้อง : ".$idcard;
+                  $arrPostData["status"] = "0";
+                  array_push($arrayloop,$arrPostData);
+              }
+  }
+}else if($strchk[0]=="H"){
+  $arrstr  = explode( "H" , $strexp );
+  for($k=1 ; $k < count( $arrstr ) ; $k++ ){
+      $strchk = "H".$arrstr[$k];
+             	
+		$txt = "";
+		$txt = "'*'ตามด้วย 13 หลัก เช็คหน้าตาม ทร 14" . "\r\n"
+                    . "'#'ตามด้วย 13 หลัก เช็คหมายจับในระบบ PDC" . "\r\n"
+                    . "'@'ตามด้วยรหัส Crimes ยืนยันสิทธิ์ค้น ทร 14" . "\r\n"
+                    . "'$'ตามด้วย ชื่อธนาคาร เว้นวรรค รหัส 3 ตัวในบัญชี ใช้ค้นสาขาธนาคาร" . "\r\n"
+                    . "'&'ตามด้วยรหัส Passport หรือ เบอร์โทรใช้ค้นบุคคลต่างชาติ" . "\r\n"
+                    . "'%'ตามด้วย 13 หลัก เช็คประวัติใน EMP" . "\r\n"
+					. "'!'ตามด้วยหมายเลขโทรศัพท์ เช็คเครือข่าย มือถือ";
+					
+                      $arrPostData = array();
+                      $arrPostData["idcard"] = $idcard;
+                      $arrPostData["detail"] = $txt;
+                      $arrPostData["status"] = $status;
+                      array_push($arrayloop,$arrPostData);
+ 
+
+  }
+}
+
 
 $arrPostData = array();
 $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
