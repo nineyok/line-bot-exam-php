@@ -1,5 +1,5 @@
 <?php
-$strAccessToken = "nNoHchQKGEIQ2TVahOXh2fhXGU9d3lETBm/AaOGRYR9JPJrUxRiP0o+ZVV2Nh/+yebTQviq+2LdcuAlF60C1QVpiPsp6a7c8mIzsELQ7ofpeafjNQOpD1NZhwx4ywlb2NeaQdfopcGsK+JlKyWfXRAdB04t89/1O/w1cDnyilFU=";
+$strAccessToken = "23xebjdkk2okjNebbUtX4Lcpt1luZG62SqgmC5mXGpVCGLE6Ph9D0UZlqV4r4CAV3SExo817HCl08T3KmBstz3/9G2zWU8+GxhSU+rWcJ2EoSNQsuUbJk0eo6iRc72RZokDiI07Xyvf9qPUiOvksFQdB04t89/1O/w1cDnyilFU=";
 $hostname_condb="localhost";
 $username_condb="kitsadac";
 $password_conndb="55zc56sCHd";
